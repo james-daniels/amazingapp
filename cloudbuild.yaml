@@ -18,6 +18,8 @@ steps:
   - 'gcr.io/optimal-brace-361621/amazingapp:blue'
   - '--region'
   - 'us-central1'
+  - '--platform'
+  - 'managed'
   - '--allow-unauthenticated'
 images:
   - 'gcr.io/optimal-brace-361621/amazingapp:blue'
