@@ -3,7 +3,7 @@ package main
 import (
 	"net/http"
 	"os"
-	"text/template"
+	"html/template"
 )
 
 type style struct {
