@@ -3,7 +3,6 @@ package main
 import (
 	"html/template"
 	"net/http"
-	"os"
 )
 
 type style struct {
@@ -11,12 +10,14 @@ type style struct {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
+	color := "red"
+
 	html := `
 		<body style="background-color: {{.Color}}">
 			<h1 style="color:white; text-align:center">This is my Awesome App!</h1>
 		</body>`
 
-	c := style{Color: os.Args[1]}
+	c := style{Color: color}
 	t := template.Must(template.New("html").Parse(html))
 	t.Execute(w, c)
 }
