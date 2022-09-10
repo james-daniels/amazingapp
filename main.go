@@ -7,16 +7,16 @@ import (
 )
 
 type style struct {
-	color string
+	Color string
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
 	html := `
-		<body style="background-color: {{.color}}">
+		<body style="background-color: {{.Color}}">
 			<h1 style="color:white; text-align:center">This is my Awesome App!</h1>
 		</body>`
 
-	c := style{color: os.Args[1]}
+	c := style{Color: os.Args[1]}
 	t := template.Must(template.New("html").Parse(html))
 	t.Execute(w, c)
 }
