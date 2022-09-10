@@ -1,10 +1,11 @@
 FROM golang:alpine as builder
 RUN mkdir /build 
-ADD . /build/
+RUN apk add git && git clone https://github.com/james-daniels/amazingapp.git /build
 WORKDIR /build
 RUN go build -o amazingapp .
 FROM alpine
 COPY --from=builder /build/amazingapp /app/
 WORKDIR /app
-CMD [ "./amazingapp", "red" ]
 EXPOSE 8080
+ENTRYPOINT ["/app/amazingapp"]
+CMD ["red"]
