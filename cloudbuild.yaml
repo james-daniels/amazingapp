@@ -1,0 +1,29 @@
+steps:
+- name: 'golang:1.18'
+  entrypoint: '/bin/bash'
+  args:
+    - '-c'
+    - |
+      go build -o awesomeapp .
+- name: 'gcr.io/cloud-builder/docker'
+  args:
+  - 'build'
+  - '-t'
+  - 'gcr.io/optimal-brace-361621/amazingapp:blue'
+  - '.'
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+  - 'push'
+  - 'gcr.io/optimal-brace-361621/amazingapp:blue'
+- name: 'gcr.io/cloud-builders/gcloud'
+  args:
+  - 'run'
+  - 'deploy'
+  - 'run-awesomeapp'
+  - '--image'
+  - 'gcr.io/optimal-brace-361621/amazingapp:blue'
+  - '--region'
+  - 'us-central1'
+  - '--allow-unauthenticated'
+images:
+  - 'gcr.io/optimal-brace-361621/amazingapp:blue'
