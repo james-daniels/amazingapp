@@ -3,23 +3,25 @@ steps:
   args:
   - 'build'
   - '-t'
-  - 'gcr.io/optimal-brace-361621/amazingapp:red'
+  - 'gcr.io/optimal-brace-361621/amazingapp:$TAG_NAME'
   - '.'
-- name: 'gcr.io/cloud-builders/docker'
-  args:
-  - 'push'
-  - 'gcr.io/optimal-brace-361621/amazingapp:red'
+# - name: 'gcr.io/cloud-builders/docker'
+#   args:
+#   - 'push'
+#   - 'gcr.io/optimal-brace-361621/amazingapp:red'
 - name: 'gcr.io/cloud-builders/gcloud'
   args:
   - 'run'
   - 'deploy'
   - 'run-awesomeapp'
   - '--image'
-  - 'gcr.io/optimal-brace-361621/amazingapp:red'
+  - 'gcr.io/optimal-brace-361621/amazingapp:$TAG_NAME'
   - '--region'
   - 'us-central1'
   - '--platform'
   - 'managed'
   - '--allow-unauthenticated'
+substitutions:
+  TAG_NAME: 'blue'
 images:
-  - 'gcr.io/optimal-brace-361621/amazingapp:red'
+  - 'gcr.io/optimal-brace-361621/amazingapp:$TAG_NAME'
