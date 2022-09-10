@@ -10,11 +10,13 @@ type style struct {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	color := "red"
+	color := "pink"
 
 	html := `
 		<body style="background-color: {{.Color}}">
-			<h1 style="color:white; text-align:center">This is my Awesome App!</h1>
+			<h1 style="color:white; text-align:center">
+				This is my Awesome App!
+			</h1>
 		</body>`
 
 	c := style{Color: color}
