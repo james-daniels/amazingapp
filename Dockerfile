@@ -3,5 +3,5 @@ RUN mkdir /app
 ADD . /app/
 WORKDIR /app 
 RUN go build -o amazingapp .
-CMD ["./amazingapp", "green"]
+CMD ["./amazingapp", "blue"]
 EXPOSE 8080
