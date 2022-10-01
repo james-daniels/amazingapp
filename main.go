@@ -10,7 +10,7 @@ type style struct {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	color := "teal"
+	color := "burgundy"
 
 	html := `
 		<body style="background-color: {{.Color}}">
