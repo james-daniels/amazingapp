@@ -22,4 +22,6 @@ steps:
   - 'managed'
   - '--allow-unauthenticated'
 substitutions:
-  TAG_NAME: 'beer'
+  TAG_NAME: 'teal
+  
+  '
