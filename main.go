@@ -15,7 +15,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	html := `
 		<body style="background-color: {{.Color}}">
 			<h1 style="color:white; text-align:center">
-				This is my Awesome App!
+				This is my Amazing App!
 			</h1>
 		</body>`
 
