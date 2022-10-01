@@ -7,4 +7,5 @@ FROM alpine
 COPY --from=builder /build/amazingapp /app/
 WORKDIR /app
 EXPOSE 8080
+USER amazinguser
 ENTRYPOINT ["/app/amazingapp"]
